@@ -1,7 +1,7 @@
 
 
 def main():
-    print(problem_005())
+    print(problem_006())
     return
 
 
@@ -84,6 +84,19 @@ def problem_005(n=20):
         p *= k ** v
 
     return p
+
+
+def problem_006(n=100):
+    sum_squares = 0
+    square_sum = 0
+
+    for i in range(1, n+1):
+        sum_squares += i ** 2
+        square_sum += i
+
+    square_sum **= 2
+
+    return square_sum - sum_squares
 
 
 if __name__ == "__main__":
