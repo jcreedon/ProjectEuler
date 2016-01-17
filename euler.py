@@ -1,7 +1,7 @@
 
 
 def main():
-    print(problem_004())
+    print(problem_005())
     return
 
 
@@ -63,6 +63,27 @@ def problem_004(n=999):
         a2 = i
 
     return 0
+
+
+def problem_005(n=20):
+    factors = dict()
+    for i in range(2, n+1):
+        temp = dict()
+        for j in factor(i):
+            if j in temp:
+                temp[j] += 1
+            else:
+                temp[j] = 1
+        for k, v in temp.items():
+            if k not in factors or factors[k] < v:
+                factors[k] = v
+
+    p = 1
+
+    for k, v in factors.items():
+        p *= k ** v
+
+    return p
 
 
 if __name__ == "__main__":
