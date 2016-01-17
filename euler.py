@@ -2,7 +2,7 @@ from math import sqrt
 
 
 def main():
-    print(problem_009())
+    print(problem_010())
     return
 
 
@@ -150,6 +150,14 @@ def problem_009():
         if s1 == s2:
             return a * b * c
     return 0
+
+
+def problem_010(n=2000000):
+    s = 2
+    for i in range(3, n, 2):
+        if is_prime(i):
+            s += i
+    return s
 
 
 if __name__ == "__main__":
