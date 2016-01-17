@@ -1,7 +1,7 @@
 
 
 def main():
-    print(problem_003())
+    print(problem_004())
     return
 
 
@@ -44,6 +44,24 @@ def factor(n):
         else:
             i += 1
     yield n
+
+
+def problem_004(n=999):
+    i = n
+    a1 = n
+    a2 = n
+
+    while i > 0:
+        while a1 >= a2:
+            if str(a1 * a2) == str(a1 * a2)[::-1]:
+                return a1 * a2
+            a1 -= 1
+            a2 += 1
+        i -= 1
+        a1 = n
+        a2 = i
+
+    return 0
 
 
 if __name__ == "__main__":
