@@ -1,7 +1,8 @@
+from math import sqrt
 
 
 def main():
-    print(problem_006())
+    print(problem_007())
     return
 
 
@@ -97,6 +98,30 @@ def problem_006(n=100):
     square_sum **= 2
 
     return square_sum - sum_squares
+
+
+def problem_007(n=10001):
+    c = 1
+    i = 1
+    while c < n:
+        i += 2
+        if is_prime(i):
+            c += 1
+    return i
+
+
+def is_prime(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    limit = int(sqrt(n) + 1)
+    for i in range(3, limit, 2):
+        if n % i == 0:
+            return False
+    return True
 
 
 if __name__ == "__main__":
