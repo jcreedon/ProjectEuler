@@ -1,4 +1,5 @@
 from math import sqrt
+import numpy
 
 
 def main():
@@ -153,11 +154,20 @@ def problem_009():
 
 
 def problem_010(n=2000000):
-    s = 2
-    for i in range(3, n, 2):
-        if is_prime(i):
-            s += i
+    s = 0
+    for i in primes_from_2_to(n):
+        s += i
     return s
+
+
+def primes_from_2_to(n):
+    sieve = numpy.ones(n/3 + (n % 6 == 2), dtype=numpy.bool)
+    for i in range(1, int(n**0.5)//3+1):
+        if sieve[i]:
+            k = 3 * i + 1 | 1
+            sieve[k*k/3::2*k] = False
+            sieve[k*(k-2*(i&1)+4)/3::2*k] = False
+    return numpy.r_[2, 3, ((3*numpy.nonzero(sieve)[0][1:]+1) | 1)]
 
 
 if __name__ == "__main__":
