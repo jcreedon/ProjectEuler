@@ -43,7 +43,8 @@ def factor(n):
             yield i
         else:
             i += 1
-    yield n
+    if i > 1:
+        yield n
 
 
 def problem_004(n=999):
