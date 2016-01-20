@@ -1,9 +1,9 @@
-from math import sqrt
+from math import sqrt, factorial
 import numpy
 
 
 def main():
-    print(problem_014())
+    print(problem_015())
     return
 
 
@@ -353,6 +353,19 @@ def problem_014():
             lc = c
             ln = i
     return ln
+
+
+def problem_015(n=20):
+    s = 0
+    for i in range(0, n + 1):
+        s += combination(n, i) ** 2
+    return s
+
+
+def combination(n, r):
+    if r == 0:
+        return 1
+    return int(factorial(n) / factorial(r) / factorial(n-r))
 
 
 if __name__ == "__main__":
