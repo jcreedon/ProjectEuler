@@ -3,7 +3,7 @@ import numpy
 
 
 def main():
-    print(problem_011())
+    print(problem_012())
     return
 
 
@@ -218,6 +218,19 @@ def problem_011():
                 p = h
 
     return p
+
+
+def problem_012():
+    n = 1
+    c = len(factors(sum(range(1, n+1))))
+    while c <= 500:
+        n += 1
+        c = len(factors(sum(range(1, n+1))))
+    return sum(range(1, n+1))
+
+
+def factors(n):
+    return set(x for tup in ([i, n//i] for i in range(1, int(n**0.5)+1) if n % i == 0) for x in tup)
 
 
 if __name__ == "__main__":
