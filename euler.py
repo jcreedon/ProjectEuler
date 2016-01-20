@@ -3,7 +3,7 @@ import numpy
 
 
 def main():
-    print(problem_013())
+    print(problem_014())
     return
 
 
@@ -335,6 +335,24 @@ def problem_013():
                 20849603980134001723930671666823555245252804609722,
                 53503534226472524250874054075591789781264330331690]
     return sum(numbers)
+
+
+def problem_014():
+    ln = 0
+    lc = 0
+    for i in range(10000, 1000000):
+        n = i
+        c = 0
+        while n > 1:
+            if n % 2 == 0:
+                n //= 2
+            else:
+                n = n * 3 + 1
+            c += 1
+        if c > lc:
+            lc = c
+            ln = i
+    return ln
 
 
 if __name__ == "__main__":
