@@ -3,7 +3,7 @@ import numpy
 
 
 def main():
-    print(problem_015())
+    print(problem_016())
     return
 
 
@@ -366,6 +366,10 @@ def combination(n, r):
     if r == 0:
         return 1
     return int(factorial(n) / factorial(r) / factorial(n-r))
+
+
+def problem_016(n=1000):
+    return sum(list(map(int, list(str(2 ** n)))))
 
 
 if __name__ == "__main__":
